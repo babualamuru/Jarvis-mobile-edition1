@@ -1,3 +1,14 @@
+// ===== 1. API KEY (Safe: browser లో మాతమ్ర ే) =====
+let API_KEY = localStorage.getItem('jarvis_key');
+if(!API_KEY){
+API_KEY = prompt('AQ.Ab8RN6KnMLxf_wJlwQwEejfDki0SxvVKfO4srmFy8X3h70MZ6wy:');
+if(API_KEY) localStorage.setItem('jarvis_key', API_KEY);
+}
+// ===== 2. SMART MODELS (ఒకటిfail అయితేnext auto try) =====
+const MODELS = ["gemini-3.6-flash", "gemini-flash-latest"];
+const chat=document.getElementById('chat');
+const input=document.getElementById('msg');
+const micBtn=document.getElementById('mic-btn');
 // ===== 3. GEMINI BRAIN (auto-fallback) =====
 async function callGemini(p){ let lastErr;
 for(const m of MODELS){
